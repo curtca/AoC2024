@@ -1,4 +1,4 @@
-﻿namespace test;
+﻿namespace lib;
 
 public class Test
 {
@@ -6,7 +6,7 @@ public class Test
     [MemberData(nameof(Data))]
     public void Test1(string value, long number)
     {
-        Assert.Equal(number, lib.Lib.Function(value));
+        Assert.Equal(number, Lib.Function(value));
     }
 
     public static IEnumerable<object[]> Data =>

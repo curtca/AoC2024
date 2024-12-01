@@ -1,10 +1,9 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace lib;
 
 public class Lib
 {
-    public static long Function(string input) {
-        return 0;
-    }
 }
