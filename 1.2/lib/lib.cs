@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Linq;
 
 namespace lib;
-
 public class Lib
 {
     public static long ListDistance(string value)
