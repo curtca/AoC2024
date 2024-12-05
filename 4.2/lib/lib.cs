@@ -17,11 +17,9 @@ public class Lib
     {
         var lines = value.Split("\r\n").ToArray();
 
-        long count = Enumerable.Range(0, lines.Length)
+        return Enumerable.Range(0, lines.Length)
             .SelectMany(r => Enumerable.Range(0, lines[0].Length).Select(c => (Row: r, Col: c)))
             .Count(start => IsAinMAS(lines, start.Row, start.Col));
-
-        return count;
     }
 
     private static bool IsAinMAS(string[] lines, int row, int col)
