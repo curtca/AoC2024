@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace lib;
-
 public class Lib
 {
     static List<char[]> valid = new List<char[]> {
