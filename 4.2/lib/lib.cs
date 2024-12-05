@@ -13,16 +13,14 @@ public class Lib
     {
         var lines = value.Split("\r\n").ToArray();
 
-        return Enumerable.Range(0, lines.Length)
-            .SelectMany(r => Enumerable.Range(0, lines[0].Length).Select(c => (Row: r, Col: c)))
+        return Enumerable.Range(1, lines.Length - 2)
+            .SelectMany(r => Enumerable.Range(1, lines[0].Length - 2).Select(c => (Row: r, Col: c)))
             .Count(start => IsAinMAS(lines, start.Row, start.Col));
     }
 
     private static bool IsAinMAS(string[] lines, int row, int col)
     {
-        if (lines[row][col] != 'A'
-            || row == 0 || col == 0 || row == lines.Length - 1 || col == lines[0].Length - 1) 
-            return false;
+        if (lines[row][col] != 'A') return false;
 
         char[] c = new char[] {lines[row-1][col-1], lines[row-1][col+1], lines[row+1][col+1], lines[row+1][col-1]};
         return valid.Any(v => v.SequenceEqual(c));
