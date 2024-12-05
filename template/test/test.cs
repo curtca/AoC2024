@@ -1,6 +1,4 @@
-﻿namespace lib;
-
-public class Test
+﻿public class Test
 {
     [Theory]
     [MemberData(nameof(Data))]

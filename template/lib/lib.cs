@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-
-namespace lib;
 
 public class Lib
 {
+    public static long Function(string value)
+    {
+
+        return 0;
+    }
 }
