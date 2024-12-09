@@ -15,14 +15,13 @@ public class Lib
 
         return Enumerable.Range(1, lines.Length - 2)
             .SelectMany(r => Enumerable.Range(1, lines[0].Length - 2).Select(c => (row: r, col: c)))
-            .Count(start => {
-                if (lines[start.row][start.col] != 'A') return false;
-
+            .Where(start => lines[start.row][start.col] == 'A')
+            .Count(a => {
                 char[] c = new char[] {
-                    lines[start.row-1][start.col-1], 
-                    lines[start.row-1][start.col+1], 
-                    lines[start.row+1][start.col+1], 
-                    lines[start.row+1][start.col-1]};
+                    lines[a.row-1][a.col-1], 
+                    lines[a.row-1][a.col+1], 
+                    lines[a.row+1][a.col+1], 
+                    lines[a.row+1][a.col-1]};
                 return valid.Any(v => v.SequenceEqual(c));
             });
     }
