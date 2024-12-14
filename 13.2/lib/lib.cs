@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Intrinsics.X86;
 using System.Text.RegularExpressions;
 
@@ -9,12 +10,9 @@ public class Lib
     {
         var claws = value.Split(Environment.NewLine + Environment.NewLine)
         .Select(strclaw => {
-            var lines = strclaw.Split(Environment.NewLine);
-            var A = Regex.Matches(lines[0], @"\b\d+\b");
-            var B = Regex.Matches(lines[1], @"\b\d+\b");
-            var P = Regex.Matches(lines[2], @"\b\d+\b");
-            return (ax: int.Parse(A[0].Value), ay: int.Parse(A[1].Value), bx: int.Parse(B[0].Value), by: int.Parse(B[1].Value), 
-                px: 10000000000000L + long.Parse(P[0].Value), py: 10000000000000L + long.Parse(P[1].Value));
+            // var lines = strclaw.Split(Environment.NewLine);
+            var m = Regex.Matches(strclaw, @"-?\d+").Select(m => long.Parse(m.Value)).ToArray();
+            return (ax: m[0], ay: m[1], bx: m[2], by: m[3], px: 10000000000000L + m[4], py: 10000000000000L + m[5]);
         });
 
         long sum = claws.Sum(c => {
