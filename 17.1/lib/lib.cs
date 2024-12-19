@@ -24,7 +24,7 @@ public class Lib
 
             switch(program[ip]) {
                 case 0: // adv
-                    A = A / (1 << cop);
+                    A = A >> cop;
                     break;
                 case 1: // bxl
                     B ^= lop;
@@ -45,10 +45,10 @@ public class Lib
                     output.Add(cop % 8);
                     break;
                 case 6: // bdv
-                    B = A / (1 << cop);
+                    B = A >> cop;
                     break;
                 case 7: // cdv
-                    C = A / (1 << cop);
+                    C = A >> cop;
                     break;
 
             }
